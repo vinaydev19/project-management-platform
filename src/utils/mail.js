@@ -45,23 +45,25 @@ const sendMail = async (options) => {
 }
 
 
-const emailVerificationMailgenContent = (username, verificationUrl) => {
+const emailVerificationMailgenContent = (username, verficationUrl) => {
     return {
-        body: username,
-        intro: "Welcome to our App! we'are excited to have you on board.",
-        action: {
-            instructions:
-                "To verify your email please click on the following button",
-            button: {
-                color: "#22BC66",
-                text: "Verify your email",
-                link: verificationUrl,
+        body: {
+            name: username,
+            intro: "Welcome to our App! we'are excited to have you on board.",
+            action: {
+                instructions:
+                    "To verify your email please click on the following button",
+                button: {
+                    color: "#22BC66",
+                    text: "Verify your email",
+                    link: verficationUrl,
+                },
             },
+            outro:
+                "Need help, or have questions? Just reply to this email, we'd love to help.",
         },
-        outro:
-            "Need help, or have questions? Just reply to this email, we'd love to help.",
-    }
-}
+    };
+};
 
 const forgotPasswordMailgenContent = (username, passwordResetUrl) => {
     return {
